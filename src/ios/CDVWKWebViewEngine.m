@@ -789,3 +789,13 @@ NSTimer *timer;
 }
 
 @end
+
+// Fix overscroll behaviour on non-root elements.
+// https://github.com/ionic-team/ionic-v3/issues/113#issuecomment-391996908
+
+@implementation UIScrollView (NoBounce)
+- (void)didMoveToWindow {
+   [super didMoveToWindow];
+   self.bounces = NO;
+}
+@end
